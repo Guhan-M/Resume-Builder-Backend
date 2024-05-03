@@ -1,82 +1,82 @@
-// import puppeteer from 'puppeteer';
-// import { Buffer } from 'buffer'; // Import buffer module
-// import dotenv from "dotenv"
+import puppeteer from 'puppeteer';
+import { Buffer } from 'buffer'; // Import buffer module
+import dotenv from "dotenv"
 
-// dotenv.config()
+dotenv.config()
 
-// const generatepdf = async (req, res) => {
-//     console.log(req.body.id);
-//     try {
-//         const link = `https://resumebuildergm.netlify.app/ResumetoPdf/${req.body.id}`;
+const generatepdf = async (req, res) => {
+    console.log(req.body.id);
+    // try {
+    //     const link = `https://resumebuildergm.netlify.app/ResumetoPdf/${req.body.id}`;
       
-//         if (req.body) {
-//             const browser = await puppeteer.launch({
-//                 headless: 'new',
-//                 args: [
-//                     '--disable-gpu',
-//                     '--no-sandbox',
-//                     '--disable-web-security',
-//                     '--disable-dev-profile',
-//                     '--aggressive-cache-discard',
-//                     '--disable-cache',
-//                     '--disable-application-cache',
-//                     '--disable-offline-load-stale-cache',
-//                     '--disable-gpu-shader-disk-cache',
-//                     '--media-cache-size=0',
-//                     '--disk-cache-size=0'
-//                 ],
-//                 executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
-//                 protocolTimeout: 120000
-//             });
-//             // const browser = await puppeteer.launch({
-//             //     headless: 'new',
-//             //     args: [
-//             //         '--disable-gpu',
-//             //         '--no-sandbox',
-//             //         '--disable-web-security',
-//             //         '--disable-dev-profile',
-//             //         '--aggressive-cache-discard',
-//             //         '--disable-cache',
-//             //         '--disable-application-cache',
-//             //         '--disable-offline-load-stale-cache',
-//             //         '--disable-gpu-shader-disk-cache',
-//             //         '--media-cache-size=0',
-//             //         '--disk-cache-size=0'
-//             //     ],
-//             //     executablePath:
-//             //     process.env.NODE_ENV === "production"
-//             //         ? process.env.PUPPETEER_EXECUTABLE_PATH
-//             //         : puppeteer.executablePath(),
-//             //     protocolTimeout: 120000
-//             // });
+    //     if (req.body) {
+    //         const browser = await puppeteer.launch({
+    //             headless: 'new',
+    //             args: [
+    //                 '--disable-gpu',
+    //                 '--no-sandbox',
+    //                 '--disable-web-security',
+    //                 '--disable-dev-profile',
+    //                 '--aggressive-cache-discard',
+    //                 '--disable-cache',
+    //                 '--disable-application-cache',
+    //                 '--disable-offline-load-stale-cache',
+    //                 '--disable-gpu-shader-disk-cache',
+    //                 '--media-cache-size=0',
+    //                 '--disk-cache-size=0'
+    //             ],
+    //             executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
+    //             protocolTimeout: 120000
+    //         });
+    //         // const browser = await puppeteer.launch({
+    //         //     headless: 'new',
+    //         //     args: [
+    //         //         '--disable-gpu',
+    //         //         '--no-sandbox',
+    //         //         '--disable-web-security',
+    //         //         '--disable-dev-profile',
+    //         //         '--aggressive-cache-discard',
+    //         //         '--disable-cache',
+    //         //         '--disable-application-cache',
+    //         //         '--disable-offline-load-stale-cache',
+    //         //         '--disable-gpu-shader-disk-cache',
+    //         //         '--media-cache-size=0',
+    //         //         '--disk-cache-size=0'
+    //         //     ],
+    //         //     executablePath:
+    //         //     process.env.NODE_ENV === "production"
+    //         //         ? process.env.PUPPETEER_EXECUTABLE_PATH
+    //         //         : puppeteer.executablePath(),
+    //         //     protocolTimeout: 120000
+    //         // });
             
-//             const page = await browser.newPage();
-//             await page.goto(link, { waitUntil: "networkidle2" });
+    //         const page = await browser.newPage();
+    //         await page.goto(link, { waitUntil: "networkidle2" });
             
-//             await page.waitForFunction(() => {
-//                 const images = document.querySelectorAll('img');
-//                 return Array.from(images).every((img) => img.complete);
-//             });
+    //         await page.waitForFunction(() => {
+    //             const images = document.querySelectorAll('img');
+    //             return Array.from(images).every((img) => img.complete);
+    //         });
 
           
-//             await page.setViewport({ width: 1080, height: 1024 });
+    //         await page.setViewport({ width: 1080, height: 1024 });
 
-//             // Generate the PDF as a buffer
-//             const pdfBuffer = await page.pdf({ format: "A4", printBackground: true });
+    //         // Generate the PDF as a buffer
+    //         const pdfBuffer = await page.pdf({ format: "A4", printBackground: true });
 
-//             // Convert binary buffer to base64 string
-//             const base64Pdf = pdfBuffer.toString('base64');
+    //         // Convert binary buffer to base64 string
+    //         const base64Pdf = pdfBuffer.toString('base64');
 
-//             await browser.close();
+    //         await browser.close();
         
-//             res.status(201).send({ message: 'File successfully saved to MongoDB',base64Pdf });
+    //         res.status(201).send({ message: 'File successfully saved to MongoDB',base64Pdf });
            
-//         } else {
-//             return res.status(404).send({ message: "data not found" });
-//         }
-//     } catch (err) {
-//         res.status(500).send({ message: err.message });
-//     }
+    //     } else {
+    //         return res.status(404).send({ message: "data not found" });
+    //     }
+    // } catch (err) {
+    //     res.status(500).send({ message: err.message });
+    // }
 // }
 
-// export default generatepdf;
+export default generatepdf;
