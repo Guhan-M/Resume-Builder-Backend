@@ -299,7 +299,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage }).single("image");
-
+console.log(upload)
+console.log(uploadedFilename)
 
 const formalresume2create = async (req, res) => {
   try {
@@ -372,6 +373,7 @@ const uploadimageresume2 = async (req, res) => {
 
       if(req.file?.filename){
         const filenamein = req.file.filename;
+          console.log(filenamein)
          if(filenamein){
           checkimage=true
           res.status(201).send({ message: 'File uploaded successfully', filenamein });
