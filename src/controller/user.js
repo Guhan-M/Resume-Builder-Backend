@@ -299,7 +299,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage }).single("image");
-console.log(upload)
+
 console.log(uploadedFilename)
 
 const formalresume2create = async (req, res) => {
